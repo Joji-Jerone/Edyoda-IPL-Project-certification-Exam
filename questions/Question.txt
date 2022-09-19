@@ -1,0 +1,24 @@
+//Without currying
+function calculateVolume(length, breadth, height) {
+        return length * breadth * height;
+    }
+
+
+//With Currying
+function calculateVolume(length) {
+        return function (breadth) {
+            return function (height) {
+                return length * breadth * height;
+            }
+        }
+    }
+
+//Syntax of currying
+
+function Myfunction(a) {
+    return (b) => {
+       return (c) => {
+         return a * b * c
+         }
+        }
+     }
