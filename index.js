@@ -1,6 +1,13 @@
+var counter = 1;
+setInterval(function () {
+    document.getElementById('radio' + counter).checked = true;
+    counter++;
+    if (counter > 4) {
+        counter = 1;
+    }
+}, 3000);
 
-//player and team data
-
+// player & team
 var playerData = [
     {
         "id": 0,
@@ -384,6 +391,8 @@ var playerData = [
         "playerImg": "https://assets.iplt20.com/ipl/IPLHeadshot2022/1703.png",
         "playerTeam": "Sunrises Hyderabad"
     },
+
+
 ];
 
 var teamData = [
@@ -457,17 +466,19 @@ var teamData = [
 
 ];
 
-//add team //add player
+
+//add team
 
 var addteamclicked = () => {
-    windows.open("./addTeam.html", "_self")
+    window.open("./addTeam.html", "_self")
 }
-
-
-
 var addPlayerClicked = () => {
-    windows.open("./addPlayer.html", "_self")
+    window.open("./addPlayer.html", "_self")
 }
+
+
+
+
 
 let detailofTeam = [];
 let detailOfPlayer = [];
@@ -483,7 +494,10 @@ detailofTeam = JSON.parse(localStorage.getItem("teamArray"));
 detailOfPlayer = JSON.parse(localStorage.getItem("playerArray"));
 
 
-//search bar
+
+
+
+// search bar 
 
 var suggestArray = [];
 for (var i = 0; i < detailofTeam.length; i++) {
@@ -545,10 +559,13 @@ function showSuggestions(list) {
     suggBox.innerHTML = listData;
 }
 
-//grid team cards
+
+
+// grid cards
+
 var teamMainBox = document.getElementById("container_teams")
 for (var i = 0; i < detailofTeam.length; i++) {
-teamMainBox.innerHTML += `
+    teamMainBox.innerHTML += `
 <div    onclick="makethisinclick('${i}')"    class="minibox">
 <img src="${detailofTeam[i].teamIcon}" class="mainimage" alt=""/> 
 <div class="dataodcard">
@@ -558,6 +575,7 @@ teamMainBox.innerHTML += `
 </div>
 </div>
 `
+
 }
 
 function makethisinclick(res) {
